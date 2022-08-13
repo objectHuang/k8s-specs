@@ -7,6 +7,6 @@ spec:
   serviceAccountName: pods-all
   containers:
   - name: kubectl
-    image: vfarcic/kubectl
+    image: objecthuang/kubectl
     command: ["sleep"]
     args: ["100000"]

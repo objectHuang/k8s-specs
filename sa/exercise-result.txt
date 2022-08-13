@@ -1,0 +1,5 @@
+5d582760b0a742d69b7f9ca5b364fbbd
+
+
+--jenkins username/password
+admin/admin
