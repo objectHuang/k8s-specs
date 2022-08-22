@@ -63,6 +63,21 @@ subjects:
 
 ---
 
+
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: mongo-data
+  namespace: go-demo-5
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+
+---
+
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:

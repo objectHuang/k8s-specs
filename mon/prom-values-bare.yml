@@ -6,11 +6,11 @@ server:
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
   resources:
     limits:
-      cpu: 100m
-      memory: 1000Mi
+      cpu: 200m
+      memory: 2000Mi
     requests:
-      cpu: 10m
-      memory: 500Mi
+      cpu: 20m
+      memory: 1000Mi
 alertmanager:
   ingress:
     enabled: true
@@ -19,32 +19,32 @@ alertmanager:
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
   resources:
     limits:
+      cpu: 20m
+      memory: 40Mi
+    requests:
       cpu: 10m
       memory: 20Mi
-    requests:
-      cpu: 5m
-      memory: 10Mi
 kubeStateMetrics:
   resources:
     limits:
+      cpu: 20m
+      memory: 100Mi
+    requests:
       cpu: 10m
       memory: 50Mi
-    requests:
-      cpu: 5m
-      memory: 25Mi
 nodeExporter:
   resources:
     limits:
+      cpu: 20m
+      memory: 40Mi
+    requests:
       cpu: 10m
       memory: 20Mi
-    requests:
-      cpu: 5m
-      memory: 10Mi
 pushgateway:
   resources:
     limits:
-      cpu: 10m
-      memory: 20Mi
+      cpu: 25m
+      memory: 50Mi
     requests:
-      cpu: 5m
-      memory: 10Mi
+      cpu: 15m
+      memory: 30Mi
