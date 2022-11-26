@@ -7,11 +7,11 @@ prometheus:
 rules:
   default: false
   custom:
-  - seriesQuery: 'http_server_resp_time_count{kubernetes_namespace!="",kubernetes_name!=""}'
+  - seriesQuery: 'http_server_resp_time_count'
     resources:
       overrides:
-        kubernetes_namespace: {resource: "namespace"}
-        kubernetes_name: {resource: "service"}
+        namespace: {resource: "namespace"}
+        name: {resource: "service"}
     name:
       matches: "^(.*)server_resp_time_count"
       as: "${1}req_per_second_per_replica"
