@@ -1,12 +1,16 @@
 jenkins:
-  master:
-    imageTag: "2.151-alpine"
+  controller:
+    image: "jenkins/jenkins"
+    imageTag: "jdk11"    
+    # tag: "2.361.4-jdk11"
+    tagLabel: jdk11
     cpu: "500m"
-    memory: "500Mi"
+    memory: "1024Mi"
     serviceType: ClusterIP
     serviceAnnotations:
       service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
     installPlugins:
+    - configuration-as-code:1559.v38a_b_2e3b_6b_b_7
     - durable-task:501.ve5d4fc08b0be
     - workflow-durable-task-step:1217.v38306d8fa_b_5c
     - blueocean:1.25.8
