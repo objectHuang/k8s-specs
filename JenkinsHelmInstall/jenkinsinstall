@@ -1,0 +1,17 @@
+
+
+helm repo add jenkins https://charts.jenkins.io
+helm repo jenkins
+repo jenkins list
+
+
+LB_IP=$(kubectl -n ingress-nginx get svc ingress-nginx-controller -o jsonpath="{.status.loadBalancer.ingress[0].ip}")
+echo $LB_IP
+ 
+JENKINS_ADDR="jenkins.$LB_IP.nip.io"
+helm install jenkins jenkins/jenkins --namespace jenkins --values helm/jenkins-values.yml --set controller.hostName=$JENKINS_ADDR --create-namespace
+
+JENKINS_PASS=$(kubectl -n jenkins \
+get secret jenkins \
+-o jsonpath="{.data.jenkins-admin-password}" \
+| base64 --decode; echo)
