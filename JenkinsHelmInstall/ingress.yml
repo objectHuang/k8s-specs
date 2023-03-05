@@ -10,19 +10,16 @@ kind: Ingress
 metadata:
   name: jenkins
   namespace: jenkins
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/backend-protocol: "http" 
 spec:  
   ingressClassName: nginx
   rules:
-    - host: jenkins.172.128.18.111.nip.io
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: jenkins
-                port:
-                  number: 8080
+  - host: jenkins.172.128.18.111.nip.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: jenkins
+            port:
+              number: 8080
